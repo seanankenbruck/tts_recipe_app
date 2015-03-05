@@ -1,9 +1,10 @@
-<h1>Sean's Recipe Book</h1>
+<h1 class="green">Tech Talent Recipe Book</h1>
 
 <table>
   <thead>
     <tr>
       <th>Name</th>
+      <th>Picture</th>
       <th>Category</th>
       <th>Instructions</th>
       <th>Minutes to Make</th>
@@ -17,6 +18,7 @@
     <% @recipes.each do |recipe| %>
       <tr>
         <td><%= link_to recipe.name, recipe %></td>
+        <td><%= image_tag (recipe.picture_url), :width =>200 %></td>
         <td><%= recipe.category %></td>
         <td><%= recipe.instructions %></td>
         <td><%= recipe.minutes_total %></td>

@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
   # GET /recipes
@@ -25,6 +26,8 @@ class RecipesController < ApplicationController
   # POST /recipes.json
   def create
     @recipe = Recipe.new(recipe_params)
+
+    @recipe.user_id = current_user.id
 
     respond_to do |format|
       if @recipe.save

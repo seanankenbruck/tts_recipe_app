@@ -4,6 +4,8 @@ class Recipe < ActiveRecord::Base
 
 	mount_uploader :picture, PictureUploader
 
+	belongs_to :user
+
 
 	def minutes_total
 		if (minutes_to_prepare)
